@@ -45,7 +45,10 @@ jobs:
     - name: Run tox
         # Run tox using the version of Python in `PATH`
       run: tox -e py
-        
+
+    - name: Print Working Directory
+      run: |
+       echo "Current Working Directory: $PWD"
 
    
         
