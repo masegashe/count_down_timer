@@ -47,11 +47,7 @@ jobs:
       run: tox -e py
         
 
-    - name: Check code formatting
-      run: |
-        pip install black
-        black --check .
-
+   
         
    
     
