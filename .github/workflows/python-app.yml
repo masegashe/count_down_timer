@@ -17,9 +17,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-     matrix:
-      python-version: [3.7, 3.8, 3.9]
+   
 
     steps:
     - name: Checkout repository
@@ -28,17 +26,13 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: ${{matrix.python-version}}
+        python-version: 3.8
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip freeze > requirements.txt
 
-   # - name: Test with pytest
-     # run: |
-        # pip install pytest pytest-cov
-         #pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
     - name: Install tox and any other packages
       run: |
          pip install tox
@@ -54,6 +48,10 @@ jobs:
       run: |
         echo "List of files in the repository:"
         ls -R
+
+    - name: Print Ubuntu version
+      run: |
+       lsb_release -a
 
    
         
