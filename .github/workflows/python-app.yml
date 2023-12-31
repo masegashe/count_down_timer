@@ -52,6 +52,15 @@ jobs:
     - name: Print Ubuntu version
       run: |
        lsb_release -a
+    - name: Build and Push Docker Image
+      id: build
+      uses: mr-smithers-excellent/docker-build-push@v4
+      with:
+          image: lethabophoku08/count_down_timer_app
+          registry: docker.io
+          username: "${{ secrets.DOCKERHUB_USERNAME }}"
+          password: "${{ secrets.DOCKERHUB_PASSWORD }}"
+   
 
    
         
